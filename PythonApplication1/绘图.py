@@ -214,7 +214,7 @@ from pyecharts import options as opts
 
 month = ['一月','二月','三月','四月','五月','六月',
          '七月','八月','九月','十月','十一月','十二月']
-num = [827.4,827.4,827.4,827.4,827.4,827.4,3051.1,4946.5,3326.3,2823.4,4589.1,2347.4]
+cost = [827.4,827.4,827.4,827.4,827.4,827.4,3051.1,4946.5,3326.3,2823.4,4589.1,2347.4]
 color_series = ['#C9DA36','#9ECB3C','#6DBC49',
                 '#3DBA78','#14ADCF','#209AC9',
                 '#2C6BA0','#2D3D8E','#6A368B'
@@ -250,5 +250,5 @@ pie1.set_series_opts(label_opts=opts.LabelOpts(is_show=True, position="inside", 
                                                font_weight="bold", font_family="Microsoft YaHei"
                                                ),
                      )
-pie1.render('a.html')
+pie1.render('绘图.html')
 #"""
