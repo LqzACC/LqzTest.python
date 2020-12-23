@@ -2,12 +2,14 @@
 
 import matplotlib.pyplot as plt
 import numpy as np
-import pygal,matplotlib
-#import CSV文件操作
+import pygal,matplotlib,json,pygal_maps_world
+import CSV文件操作,JSON文件操作
+from JSON文件操作 import world_population,w_p1,w_p2,w_p3
 from datetime import datetime
 from random_walk import RandomWalk,Die
 from matplotlib import cm
 from mpl_toolkits.mplot3d import Axes3D
+from pygal.style import RotateStyle,LightColorizedStyle
 
 """
 #plot 曲线图(指定→函数模拟)
@@ -179,9 +181,6 @@ print(np.shape(X))
 print(np.shape(Y))
 print(X)
 print(Y)
-"""
-
-"""
 R = np.sqrt(X**2 + Y**2)
 Z = np.sin(R)
 Z=X*0+4
@@ -206,7 +205,7 @@ ax.grid(True)
 plt.show()
 """
 
-#"""
+"""
 #南丁格尔玫瑰图
 import pandas as pd
 from pyecharts.charts import Pie
@@ -251,4 +250,16 @@ pie1.set_series_opts(label_opts=opts.LabelOpts(is_show=True, position="inside", 
                                                ),
                      )
 pie1.render('绘图.html')
+"""
+
+#"""
+#世界地图
+wm_style=pygal.style.RotateStyle('#3399AA')
+wm=pygal.maps.world.World(style=wm_style)
+wm = pygal_maps_world.maps.World()
+wm.title = 'world population distribution'
+wm.add('0-10Million',w_p1)
+wm.add('10-1000Million',w_p2)
+wm.add('>10Billion',w_p3)
+wm.render_to_file('world_population.svg') 
 #"""
