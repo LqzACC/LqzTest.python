@@ -3,13 +3,14 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import pygal,matplotlib,json,pygal_maps_world
-import CSV文件操作,JSON文件操作
+import CSV文件操作,JSON文件操作,API调用
 from JSON文件操作 import world_population,w_p1,w_p2,w_p3
+#from API调用 import title,sub_dicts
 from datetime import datetime
 from random_walk import RandomWalk,Die
 from matplotlib import cm
 from mpl_toolkits.mplot3d import Axes3D
-from pygal.style import RotateStyle,LightColorizedStyle
+from pygal.style import RotateStyle,LightColorizedStyle,LightenStyle,DefaultStyle
 
 """
 #plot 曲线图(指定→函数模拟)
@@ -152,7 +153,7 @@ plt.show()
 """
 
 """
-#图表
+#CSV图表
 fig=plt.figure(dpi=128,figsize=(10,6))
 plt.plot(CSV文件操作.date,CSV文件操作.high,color='red',alpha=0.5)
 plt.plot(CSV文件操作.date,CSV文件操作.low,color='blue',alpha=0.5)
@@ -252,8 +253,8 @@ pie1.set_series_opts(label_opts=opts.LabelOpts(is_show=True, position="inside", 
 pie1.render('绘图.html')
 """
 
-#"""
-#世界地图
+"""
+#JSON世界地图
 wm_style=pygal.style.RotateStyle('#3399AA')
 wm=pygal.maps.world.World(style=wm_style)
 wm = pygal_maps_world.maps.World()
@@ -262,4 +263,68 @@ wm.add('0-10Million',w_p1)
 wm.add('10-1000Million',w_p2)
 wm.add('>10Billion',w_p3)
 wm.render_to_file('world_population.svg') 
+"""
+
+"""
+#API柱状图
+my_style =  LightenStyle('#333366', base_style=LightColorizedStyle)
+my_config = pygal.Config()
+my_config.x_label_rotation = 45
+my_config.show_legend = False
+my_config.title_font_size = 24
+my_config.label_font_size = 14
+my_config.major_label_font_size = 18
+my_config.truncate_label = 15
+my_config.show_y_guides = False
+my_config.width = 1000 
+chart=pygal.Bar(my_config, style=my_style)
+chart.title = 'Most-Starred Python Projects on GitHub'
+chart.x_labels = title
+chart.add('',sub_dicts)
+chart.render_to_file('python_repos.svg') 
+"""
+
+#"""
+#矩形树图
+treemap = pygal.Treemap(print_labels=True, print_values=True,
+                        style=DefaultStyle(
+                        value_font_family='Times New Roman',
+                        value_font_size=10,
+                        label_font_family='Times New Roman',
+                        label_font_size=10,
+                        title_font_family='Times New Roman',
+                        title_font_size = 30,
+                        value_colors=('white',)))
+treemap.title = 'GDP占比'
+treemap.add('亚洲', [{'value': 15.03, 'label': '中国大陆'},
+                      {'value': 6.10, 'label': '日本'},
+                      {'value': 3.27, 'label': '印度'},
+                      {'value': 1.92, 'label': '韩国'},
+                      {'value': 1.27, 'label': '印尼'},
+                      {'value': 1.06, 'label': '土耳其'},
+                      {'value': 1.21, 'label': '中国港澳台'}] 
+            formatter=lambda x: '%s%%' % x)
+treemap.add('欧洲', [{'value': 4.61, 'label': '德国'},
+                      {'value': 3.28, 'label': '英国'},
+                      {'value': 3.23, 'label': '法国'},
+                      {'value': 2.42, 'label': '意大利'},
+                      {'value': 1.91, 'label': '俄罗斯'},
+                      {'value': 1.64, 'label': '西班牙'},
+                      {'value': 1.03, 'label': '荷兰'},
+                      {'value': 0.85, 'label': '瑞士'}], 
+            formatter=lambda x: '%s%%' % x)
+treemap.add('北美洲', [ {'value': 24.26, 'label': '美国'},
+                      {'value': 2.07, 'label': '加拿大'},
+                      {'value': 1.44, 'label': '墨西哥'}], 
+            formatter=lambda x: '%s%%' % x)
+treemap.add('南美洲', [{'value': 2.57, 'label': '巴西'},
+                      {'value': 0.80, 'label': '阿根廷'}], 
+            formatter=lambda x: '%s%%' % x)
+treemap.add('大洋洲', [{'value': 1.73, 'label': '澳大利亚'},
+                      {'value': 0.25, 'label': '新西兰'}], 
+            formatter=lambda x: '%s%%' % x)
+treemap.add('其他国家', [{'value': 17.17, 'label': '其他国家'}], 
+            formatter=lambda x: '%s%%' % x)
+treemap.render()
+treemap.render_to_file('treemap.svg') #保存结果至桌面
 #"""
