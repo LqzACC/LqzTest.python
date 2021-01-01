@@ -250,7 +250,7 @@ pie1.set_series_opts(label_opts=opts.LabelOpts(is_show=True, position="inside", 
                                                font_weight="bold", font_family="Microsoft YaHei"
                                                ),
                      )
-pie1.render('绘图.html')
+pie1.render('C:\\Users\\11389\\source\\repos\\PythonApplication1\\绘图.html')
 """
 
 """
@@ -262,7 +262,7 @@ wm.title = 'world population distribution'
 wm.add('0-10Million',w_p1)
 wm.add('10-1000Million',w_p2)
 wm.add('>10Billion',w_p3)
-wm.render_to_file('world_population.svg') 
+wm.render_to_file('C:\\Users\\11389\\source\\repos\\PythonApplication1\\world_population.svg') 
 """
 
 """
@@ -281,10 +281,10 @@ chart=pygal.Bar(my_config, style=my_style)
 chart.title = 'Most-Starred Python Projects on GitHub'
 chart.x_labels = title
 chart.add('',sub_dicts)
-chart.render_to_file('python_repos.svg') 
+chart.render_to_file('C:\\Users\\11389\\source\\repos\\PythonApplication1\\python_repos.svg') 
 """
 
-#"""
+"""
 #矩形树图
 treemap = pygal.Treemap(print_labels=True, print_values=True,
                         style=DefaultStyle(
@@ -302,7 +302,7 @@ treemap.add('亚洲', [{'value': 15.03, 'label': '中国大陆'},
                       {'value': 1.92, 'label': '韩国'},
                       {'value': 1.27, 'label': '印尼'},
                       {'value': 1.06, 'label': '土耳其'},
-                      {'value': 1.21, 'label': '中国港澳台'}] 
+                      {'value': 1.21, 'label': '中国港澳台'}] ,
             formatter=lambda x: '%s%%' % x)
 treemap.add('欧洲', [{'value': 4.61, 'label': '德国'},
                       {'value': 3.28, 'label': '英国'},
@@ -326,5 +326,5 @@ treemap.add('大洋洲', [{'value': 1.73, 'label': '澳大利亚'},
 treemap.add('其他国家', [{'value': 17.17, 'label': '其他国家'}], 
             formatter=lambda x: '%s%%' % x)
 treemap.render()
-treemap.render_to_file('treemap.svg') #保存结果至桌面
-#"""
+treemap.render_to_file('C:\\Users\\11389\\source\\repos\\PythonApplication1\\treemap.svg') #保存结果至桌面
+"""

@@ -11,3 +11,8 @@ else:
 webbrowser.open('https://www.google.com/maps/place/' + address)
 print(address)
 # TODO: Get address from clipboard.
+
+#1.在命令行中执行.py程序，将存储.py文件添加入全局变量，win+r 输入cmd → xxx.py+xxxxx
+#2.利用.bat批处理，自动执行.py程序，
+#@echo off 
+#start cmd /k xxxx.py+xxx
