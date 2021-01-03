@@ -1,8 +1,9 @@
-import smtplib,imapclient,pprint,pyzmail,imaplib
+import smtplib,imapclient,pprint,pyzmail,imaplib,openpyxl,sys
 imaplib._MAXLINE = 10000000
 
 
 """
+#发送邮件
 email=smtplib.SMTP('smtp.qq.com',587)
 email.ehlo()#250表示成功
 email.starttls()#220表示系统就绪
@@ -17,6 +18,8 @@ email.sendmail('1506947494@qq.com',
 email.quit()
 """
 
+"""
+#第三方登陆邮件
 pullemail=imapclient.IMAPClient('smtp.qq.com',ssl=True)
 pullemail.login('1506947494@qq.com',
                 'oaiihtxylztpjgid'
@@ -39,3 +42,43 @@ text.close()
 pullemail.delete_messages(pu)
 #pullemail.expunge()
 pullemail.logout()
+"""
+
+"""
+#导入发送邮件
+vip=openpyxl.load_workbook('D:\\代码\\python块包\\automate_online-materials\\duesRecords.xlsx')
+vsheet=vip.get_sheet_by_name('Sheet1')
+lastcol=vsheet.max_column
+maxrow=vsheet.max_row
+#get_highest_row()和get_highest_column()在最新版的openpyxl模块中已经被删除了，取而代之的是max_row和max_column两个方法。
+memberdict={}
+for i in range(2,maxrow+1):
+    lastmonth=vsheet.cell(row=i,column=lastcol).value
+    if vsheet.cell(row=i,column=lastcol).value=='paid':
+        print(vsheet.cell(row=i,column=1).value+'paid')
+    else:
+        print(type(vsheet.cell(row=i,column=1).value))
+        name=vsheet.cell(row=i,column=1).value
+        email=vsheet.cell(row=i,column=2).value
+        memberdict[name]=email
+pprint.pprint(memberdict)
+
+for name,email in memberdict.items():
+    email=smtplib.SMTP('smtp.qq.com',587)
+    email.ehlo()#250表示成功
+    email.starttls()#220表示系统就绪
+    email.login('1506947494@qq.com',
+                'oaiihtxylztpjgid'
+                )
+                #235系统认证成功,邮箱授权码设置为密码
+    try:
+        email.sendmail('1506947494@qq.com',
+                       email,
+                       'Subject:'+input('右键标题:')+'\n'+input('请输入邮件内容:')+' '*4
+                       )
+    except BaseException as err:
+        print(email+'send err')
+    else:
+        print('send success')
+email.quit()
+"""
