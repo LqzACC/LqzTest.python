@@ -96,7 +96,7 @@ while not url.endswith('#'):
         #select返回的对像中get函数，括号里为属性
 """
 
-#"""
+"""
 #自动批量从网页下载(多线程)
 os.makedirs('download',exist_ok=True)
 def download(startpage,endpage):#多线程
@@ -130,7 +130,7 @@ def download(startpage,endpage):#多线程
 for i in range(1,2000,10):
     downloadTask = threading.Thread(target=download, args=(i,i+9))
     downloadTask.start()
-#"""
+"""
 
 """
 #填充网页,需要学习javascript
