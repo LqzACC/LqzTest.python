@@ -26,7 +26,7 @@ def downloadessay():
     else:
         print('success!')
     essayhtml=bs4.BeautifulSoup(open2.text,features='lxml')
-    essaypage=essayhtml.select('h2 a')
+    essaypage=essayhtml.select('.art-list-item-title')
     if essaypage==[]:
         print('not found')
     else:
