@@ -8,7 +8,7 @@ email=smtplib.SMTP('smtp.qq.com',587)
 email.ehlo()#250表示成功
 email.starttls()#220表示系统就绪
 email.login('1506947494@qq.com',
-            'oaiihtxylztpjgid'
+            ''
             )
 #235系统认证成功,邮箱授权码设置为密码
 email.sendmail('1506947494@qq.com',
@@ -22,7 +22,7 @@ email.quit()
 #第三方登陆邮件
 pullemail=imapclient.IMAPClient('smtp.qq.com',ssl=True)
 pullemail.login('1506947494@qq.com',
-                'oaiihtxylztpjgid'
+                ''
                 )
 pprint.pprint(pullemail.list_folders())
 pullemail.select_folder('INBOX',readonly=False)
@@ -68,7 +68,7 @@ for name,email in memberdict.items():
     email.ehlo()#250表示成功
     email.starttls()#220表示系统就绪
     email.login('1506947494@qq.com',
-                'oaiihtxylztpjgid'
+                ''
                 )
                 #235系统认证成功,邮箱授权码设置为密码
     try:
