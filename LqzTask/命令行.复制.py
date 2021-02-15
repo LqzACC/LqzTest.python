@@ -16,3 +16,9 @@ print(address)
 #2.利用.bat批处理，自动执行.py程序，
 #@echo off 
 #start cmd /k xxxx.py+xxx
+#$pip install --.whl
+#$pip -r requirements.txt
+#matplotlib
+#pygame
+#requests
+#pip
