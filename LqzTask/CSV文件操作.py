@@ -26,3 +26,36 @@ for arrange in reader:
         low.append(ltempature)
 print(date,high,low)
 """
+
+"""
+#写入
+outputFile = open('output.csv', 'w', newline='')
+outputWriter = csv.writer(outputFile, delimiter='\t', lineterminator='\n\n')
+#delimiter选择替换逗号的符号,lineterminator选择行间隔
+#readerObj.line_num确定行号
+outputFile.close()
+data.to_csv('splitData\wodecesi.csv',index = False)
+Writer = csv.writer(outputfile)
+Writer.writerows(map(lambda x: [x], List))
+#可直接竖向排列
+"""
+
+inputpath=r'C:\Users\lqz\Desktop\新建文件夹\77.5K Angle Dependence.csv'
+outputpath=r'C:\Users\lqz\Desktop\新建文件夹\output.csv'
+inputfile=open(inputpath)
+outputfile=open(r'C:\Users\lqz\Desktop\新建文件夹\output.csv','w',newline='')
+reader=csv.reader(inputfile)
+head_row=next(reader)
+    #(next(reader)返回一个全局变量)
+
+for index,column_header in enumerate(head_row):
+    print(index,column_header)
+
+Current=[]
+for column in reader:
+        CriticalCurrent=float(column[3])
+        if reader.line_num > 716:
+            Current.append(str(CriticalCurrent))
+
+Writer = csv.writer(outputfile)
+Writer.writerows(map(lambda x: [x], Current))
