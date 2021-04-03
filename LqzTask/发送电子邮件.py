@@ -1,9 +1,8 @@
 import smtplib,imapclient,pprint,pyzmail,imaplib,openpyxl,sys
 imaplib._MAXLINE = 10000000
 
-
-"""
 #发送邮件
+"""
 email=smtplib.SMTP('smtp.qq.com',587)
 email.ehlo()#250表示成功
 email.starttls()#220表示系统就绪
@@ -18,8 +17,8 @@ email.sendmail('1506947494@qq.com',
 email.quit()
 """
 
-"""
 #第三方登陆邮件
+"""
 pullemail=imapclient.IMAPClient('smtp.qq.com',ssl=True)
 pullemail.login('1506947494@qq.com',
                 ''
@@ -44,8 +43,8 @@ pullemail.delete_messages(pu)
 pullemail.logout()
 """
 
-"""
 #导入发送邮件
+"""
 vip=openpyxl.load_workbook('D:\\代码\\python块包\\automate_online-materials\\duesRecords.xlsx')
 vsheet=vip.get_sheet_by_name('Sheet1')
 lastcol=vsheet.max_column

@@ -34,8 +34,8 @@ screen.rotate(90, expand=True).save('D:\\代码\\python块包\\image\\rotate_deg
 screen.transpose(Image.FLIP_LEFT_RIGHT).save('D:\\代码\\python块包\\image\\mirror_LR.png')#镜像左右
 screen.transpose(Image.FLIP_TOP_BOTTOM).save('D:\\代码\\python块包\\image\\mirror_TD.png')#镜像上下
 
-"""
 #遍历文件添加icon
+"""
 os.chdir(r'D:\代码\python块包\image')
 os.makedirs(r'D:\代码\python块包\imagecopy',exist_ok=True)
 MAX_SIZE=300
@@ -63,8 +63,8 @@ for filename in os.listdir('.'):
     im.save(r'D:\代码\python块包\imagecopy\%s'%(filename))
 """
 
-"""
 #在图片上绘制
+"""
 im=Image.new('RGBA',(100,100))
 draw=ImageDraw.Draw(im)
 draw.line([(0, 0), (199, 0), (199, 199), (0, 199), (0, 0)], fill='black')

@@ -2,13 +2,13 @@ import webbrowser,requests,bs4,sys,os,threading
 from selenium import webdriver
 #考虑学习CSS,Javascript
 
-"""
 #网页打开
+"""
 webbrowser.open('https://www.zhihu.com/follow')
 """
 
-"""
 #网页下载
+"""
 res=requests.get('https://www.zhihu.com/follow')
 res.status_code=requests.codes.ok
 try:
@@ -25,8 +25,8 @@ file.close()
 #将下载的网页写入本地.txt文件中
 """
 
-"""
 #打开指定网址的几页
+"""
 res=requests.get('https://tieba.baidu.com/f?kw=%CF%D4%BF%A8&fr=ala0&tpl=5')
 res.status_code=requests.codes.ok
 try:
@@ -66,6 +66,7 @@ print(elm[0].attrs)
 #打开本地存储的网页,用.read()
 """
 
+#自动批量从网页下载(单线程)
 """
 #自动批量从网页下载(单线程)
 url='https://xkcd.com/'
@@ -96,8 +97,8 @@ while not url.endswith('#'):
         #select返回的对像中get函数，括号里为属性
 """
 
-"""
 #自动批量从网页下载(多线程)
+"""
 os.makedirs('download',exist_ok=True)
 def download(startpage,endpage):#多线程
     for numpage in range(startpage,endpage):
@@ -132,8 +133,8 @@ for i in range(1,2000,10):
     downloadTask.start()
 """
 
-"""
 #填充网页,需要学习javascript
+"""
 brower=webdriver.Chrome()
 brower.get('https://gmis.shu.edu.cn/shuweb/index.html#/login?redirect=%2Ffunc%2Fnewdoc%2FGRXXXG%2FGNEW%2F20720115')
 link=brower.find_element_by_class_name('el-button el-button--success el-button--medium')

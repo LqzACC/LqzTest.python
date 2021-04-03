@@ -12,8 +12,8 @@ from matplotlib import cm
 from mpl_toolkits.mplot3d import Axes3D
 from pygal.style import RotateStyle,LightColorizedStyle,LightenStyle,DefaultStyle
 
-"""
 #plot 曲线图(指定→函数模拟)
+"""
 x=list(range(1,100))
 y=[v**2 for v in x]
 plt.plot(x,y,label='test',color='red',linestyle=':',linewidth=1) 
@@ -29,8 +29,8 @@ plt.tick_params(axis='both',labelsize=14)
 plt.show()
 """
 
-"""
 #scatter 散点图(单次模拟→函数模拟→随机数模拟→多次随机模拟)
+"""
 x=list(range(1,100)) or x=[1,2,3]
 y=[f(x)] or y=[1,2,3]
 for v in x:
@@ -70,8 +70,8 @@ while True:
     #(savefig('文件名实参,默认位置，可选绝对路径'，'是否保留空白实参'))
 """
 
-"""
 #柱状图pygal实现(掷色子1次→2次叠加)
+"""
 die1=Die(6)
 die2=Die(10)
 N=input('你想模拟多少次？输入\nN=')
@@ -112,8 +112,8 @@ hist.add('D6+D6',Frequency)
 hist.render_to_file('D:\\Bar.svg')
 """
 
-"""
 #柱状图matplotlib实现
+"""
 labels = ['G1', 'G2', 'G3', 'G4', 'G5']
 men_means = [20, 34, 30, 35, 27]
 women_means = [25, 32, 34, 20, 25]
@@ -152,8 +152,8 @@ fig.tight_layout()
 plt.show()
 """
 
-"""
 #CSV图表
+"""
 fig=plt.figure(dpi=128,figsize=(10,6))
 plt.plot(CSV文件操作.date,CSV文件操作.high,color='red',alpha=0.5)
 plt.plot(CSV文件操作.date,CSV文件操作.low,color='blue',alpha=0.5)
@@ -166,8 +166,8 @@ plt.tick_params(axis='both',labelsize=10)
 plt.show()
 """
 
-"""
 #3D图
+"""
 import numpy as np
 from matplotlib import cm
 from mpl_toolkits.mplot3d import Axes3D
@@ -191,6 +191,7 @@ ax.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap=cm.viridis)
 plt.show()
 """
 
+#散点分布图
 """
 #散点分布图
 np.random.seed(19680801)
@@ -206,6 +207,7 @@ ax.grid(True)
 plt.show()
 """
 
+#南丁格尔玫瑰图
 """
 #南丁格尔玫瑰图
 import pandas as pd
@@ -253,8 +255,8 @@ pie1.set_series_opts(label_opts=opts.LabelOpts(is_show=True, position="inside", 
 pie1.render('C:\\Users\\11389\\source\\repos\\PythonApplication1\\绘图.html')
 """
 
-"""
 #JSON世界地图
+"""
 wm_style=pygal.style.RotateStyle('#3399AA')
 wm=pygal.maps.world.World(style=wm_style)
 wm = pygal_maps_world.maps.World()
@@ -265,8 +267,8 @@ wm.add('>10Billion',w_p3)
 wm.render_to_file('C:\\Users\\11389\\source\\repos\\PythonApplication1\\world_population.svg') 
 """
 
-"""
 #API柱状图
+"""
 my_style =  LightenStyle('#333366', base_style=LightColorizedStyle)
 my_config = pygal.Config()
 my_config.x_label_rotation = 45
@@ -284,8 +286,8 @@ chart.add('',sub_dicts)
 chart.render_to_file('C:\\Users\\11389\\source\\repos\\PythonApplication1\\python_repos.svg') 
 """
 
-"""
 #矩形树图
+"""
 treemap = pygal.Treemap(print_labels=True, print_values=True,
                         style=DefaultStyle(
                         value_font_family='Times New Roman',
