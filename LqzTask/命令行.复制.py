@@ -29,3 +29,6 @@ print(address)
 #$pip -r requirements.txt
 #matplotlib,pygame,requests,scipy,send2trash,beautifulsoup4,selenium,openpyxl,PyPDF2,python-docx,imapclient,pyzmail,twilio,pillow,pyautogui,pip,numpy+mkl
 #pyobjc-core（仅在 OS X 上）,pyobjc（仅在 OS X 上）,python3-xlib（仅在 Linux 上）
+
+#git还原:将某一次更改全部撤回并新建一次更改。重置-hard:在某一次提交上进行重置，本地代码将回滚到该次提交，且删除之后的提交。重置-mixed:在某一次提交上进行重置，本地代码回滚到该次提交。
+#git检索：

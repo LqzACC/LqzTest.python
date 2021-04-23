@@ -40,22 +40,37 @@ Writer.writerows(map(lambda x: [x], List))
 #可直接竖向排列
 """
 
-inputpath=r'C:\Users\lqz\Desktop\新建文件夹\77.5K Angle Dependence.csv'
+#inputpath=r'C:\Users\lqz\Desktop\新建文件夹\77.5K Angle Dependence.csv'
 outputpath=r'C:\Users\lqz\Desktop\新建文件夹\output.csv'
-inputfile=open(inputpath)
-outputfile=open(r'C:\Users\lqz\Desktop\新建文件夹\output.csv','w',newline='')
-reader=csv.reader(inputfile)
-head_row=next(reader)
-    #(next(reader)返回一个全局变量)
+#inputfile=open(inputpath)
+outputfile=open(r'C:\Users\lqz\Desktop\新建文件夹\output1.csv','w',newline='')
+#reader=csv.reader(inputfile)
+#head_row=next(reader)
+#(next(reader)返回一个全局变量)
 
-for index,column_header in enumerate(head_row):
-    print(index,column_header)
+#for index,column_header in enumerate(head_row):
+    #print(index,column_header)
 
-Current=[]
+Current,d=[],[]
+"""
 for column in reader:
         CriticalCurrent=float(column[3])
         if reader.line_num > 716:
             Current.append(str(CriticalCurrent))
+"""
+c=30
+for i in range(0,601):
+    Current.append(i)
+for i in np.arange(0,30.1,0.1):#range()只能处理整数，np.arange()可以处理浮点数
+    d.append(i)
+for i in range(1,301):
+    d.append(c)
 
 Writer = csv.writer(outputfile)
-Writer.writerows(map(lambda x: [x], Current))
+a=list(map(lambda x:x,Current))
+b=list(map(lambda x:x,d))
+c=zip(a,b)
+print(list(c))
+Writer.writerows(zip(a,b))
+#writerows()必须是可迭代的，eg:元组列表
+#list(zip(a,b))==[(),(),()....]or[[],[],[]....]
