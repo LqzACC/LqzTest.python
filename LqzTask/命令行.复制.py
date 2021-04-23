@@ -30,5 +30,5 @@ print(address)
 #matplotlib,pygame,requests,scipy,send2trash,beautifulsoup4,selenium,openpyxl,PyPDF2,python-docx,imapclient,pyzmail,twilio,pillow,pyautogui,pip,numpy+mkl
 #pyobjc-core（仅在 OS X 上）,pyobjc（仅在 OS X 上）,python3-xlib（仅在 Linux 上）
 
-#git还原:将某一次更改全部撤回并新建一次更改。重置-hard:在某一次提交上进行重置，本地代码将回滚到该次提交，且删除之后的提交。重置-mixed:在某一次提交上进行重置，本地代码回滚到该次提交。
-#git挑拣:将某一次的提交并入当前提交中，A-B-C-D，对A进行挑拣，将A中不同的代码合并入D中。
+#git还原:将某一次更改全部撤回并新建一次更改。重置-hard:在某一次提交上进行重置，本地代码将回滚到该次提交，且删除该提交之后的代码。重置-mixed:在某一次提交上进行重置，本地代码回滚到该次提交。
+#git挑拣:将某一次提交合并入当前提交中，A-B-C-D将A中非相同代码合并入当前提交D中。
