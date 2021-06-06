@@ -50,6 +50,19 @@ outputfile=open(r'C:\Users\lqz\Desktop\新建文件夹\output1.csv','w',newline=
 
 #for index,column_header in enumerate(head_row):
     #print(index,column_header)
+"""
+#w：以写方式打开， 
+#a：以追加模式打开 (从 EOF 开始, 必要时创建新文件) 
+#r+：以读写模式打开 
+#w+：以读写模式打开 (参见 w ) 
+#a+：以读写模式打开 (参见 a ) 
+#rb：以二进制读模式打开 
+#wb：以二进制写模式打开 (参见 w ) 
+#ab：以二进制追加模式打开 (参见 a ) 
+#rb+：以二进制读写模式打开 (参见 r+ ) 
+#wb+：以二进制读写模式打开 (参见 w+ ) 
+#ab+：以二进制读写模式打开 (参见 a+ )
+"""
 
 Current,d=[],[]
 """
@@ -72,5 +85,11 @@ b=list(map(lambda x:x,d))
 c=zip(a,b)
 print(list(c))
 Writer.writerows(zip(a,b))
+
 #writerows()必须是可迭代的，eg:元组列表
 #list(zip(a,b))==[(),(),()....]or[[],[],[]....]
+
+#lambda x:x+1  返回计算结果  f(x)=y=x+1 e.g.f=lambda x:x+1 f(3)=4
+#map(function,iterable)  返回迭代器对象 e.g. <map object at 0x7fc638814c10> 
+#map+lambda   map(lambda x:x+1,list)
+#filter() e.g.  filter(function,list) list中带入function，返回true的数取出来做成列表
