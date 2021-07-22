@@ -45,7 +45,7 @@ while True:
     plt.figure(dpi=80,figsize=(10,6))
     num_point=list(range(rw.num_points))
     plt.scatter(rw.x_values,rw.y_values,c=num_point,cmap=plt.cm.Blues,s=14)
-        #(点大小用s)(color(R,G,B)颜色参数 0~1,语句用c，单个推荐用color)(edgecolor='none'去除点轮廓)(c=,cmap=*.cm.Blues颜色映射根据y值)
+        #(点大小用s)(color(R,G,B)颜色参数 0~1,c是向量，单个推荐用color)(edgecolor='none'去除点轮廓)(c=,cmap=*.cm.Blues颜色映射根据y值)
         #(URL='https://matplotlib.org/gallery/color/colormap_reference.html#sphx-glr-gallery-color-colormap-reference-py'cmap颜色参考)
     plt.title("square",fontsize=24) 
         #(文本大小用FONTSIZE)
@@ -63,7 +63,7 @@ while True:
         #(该项可选，若不选，则系统默认)
     plt.show()
     #plt.savefig('D:\\scatter.jpg',bbox_inches='tight')
-        #(该项可选，若不选，则系统默认)
+        #(该项可选，若不选，则系统默认，应该放在plt.show之前，不然保存后是空白)
     keep_running=input('你想继续吗?请按下y OR n\n')
     if keep_running == 'n':
         break
